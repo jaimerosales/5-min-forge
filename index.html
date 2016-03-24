@@ -48,13 +48,13 @@
 			<div class="slides">
 				<section>
                     <img src="img/Autodesk-logo.png" width="30%">
-					<h1>View and data api</h1>
+					<h2>View and data api</h2>
 				</section>
                 
                 <section>
                     <h2>About Me</h2>
                     <p>Jaime Rosales</p>
-                    <p>Developer Evangelist @ Autodesk</p>
+                    <p>DevTech Engineer @ Autodesk</p>
                     <i class="fa fa-twitter fa-fw"></i> @AfroJme
                 </section>
                 <section>
@@ -93,93 +93,36 @@
                 </section>
                 <section>
                     <p>Eye candy 3D models in seconds</p>
-                    <iframe src="http://lmv.rocks/viewer/?url=http://lmv.rocks/data/house/Residential%20Exterior.obj.svf" height="500px" width="80%"></iframe>
+                    <iframe src="http://lmv.rocks/viewer/?url=http://lmv.rocks/data/racecar/Design.svf" height="500px" width="80%"></iframe>
                 </section>
 
                 <section>
-                    <h3>Let's see something that makes more sense for the AEC industry</h3>
-                    <a href="http://calm-inlet-4387.herokuapp.com/?_sm_au_=iVVp43FjZ50pfTqM">LMV Nav demo</a>
-                </section>
-
-                <section class="fragment">
-                    <h2>On your page</h2>
-                    <div class="fragment">
-                        <p>Reference the following JavaScript Libraries:</p>
-                        <pre><code data-trim class="hljs html">&lt;link rel="stylesheet" href="https://viewing.api.autodesk.com/viewingservice/v1/viewers/style.css" type="text/css"&gt;
-&lt;script src="https://viewing.api.autodesk.com/viewingservice/v1/viewers/viewer3D.min.js"&gt;&lt;/script&gt;</code></pre>
-                    </div>
-                    <div class="fragment">
-                        <p>Create a div with id "viewer"</p>
-                        <pre><code data-trim class="hljs html">&lt;div id="viewer"&gt;&lt;/div&gt;</code></pre>
+                    <img src="img/npm-logo.png" width="50%">
+                    <div>
+                        <code data-trim class="hljs javascript">$ npm install view-and-data</code>
                     </div>
                 </section>
-                
+
                 <section>
-                    <p>Initialize with JavaScript</p>
-                                        <pre><code data-trim class="hljs javascript">function initialize() {
-    var options = {
-        'document' : 'urn:dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6bXlidWNrZXQvc2t5c2NwcjEuM2Rz',
-        'env':'AutodeskProduction',
-        'getAccessToken': getToken,
-        'refreshToken': getToken,
-        };
-    var viewerElement = document.getElementById('viewer');
-    var viewer = new Autodesk.Viewing.Viewer3D(viewerElement, {});
+                    <h2>June 15th & 16th</h2>
+                    <h3>San Francisco</h3>
+                    <a href="http://forge.autodesk.com/conference/">
+                    <img src="img/adsk-forge-devcon.png">
+                    </a>
 
-    Autodesk.Viewing.Initializer(options,function() {
-        viewer.initialize();
-        loadDocument(viewer, options.document);
-    });
-}</code></pre>
                 </section>
-                
-                <section class="fragment">
-                    <h3>token</h3>
-                        <pre><code data-trim class="javascript">function getToken() {
-    return "GX6OONHlQ9qoVaCSmBqJvqPFUT5i";
-}</code></pre>
-                    <p class="fragment">You should write your own token service.</p>
-                </section>
-
-                
-                <section>
-                    <h3>loadDocument</h3>
-                    <pre><code data-trim class="hljs javascript">function loadDocument(viewer, documentId) {
-    // Find the first 3d geometry and load that.
-    Autodesk.Viewing.Document.load(documentId, function(doc) {
-    var geometryItems = [];
-    geometryItems = Autodesk.Viewing.Document.getSubItemsWithProperties(doc.getRootItem(), {
-        'type' : 'geometry',
-        'role' : '3d'
-    }, true);
-
-    if (geometryItems.length > 0) {
-        viewer.load(doc.getViewablePath(geometryItems[0]));
-    }
- }, function(errorMsg) {// onErrorCallback
-    alert("Load Error: " + errorMsg);
-    });
-}</code></pre>
-                </section>
-                
-                
-                <section>
-                    <p>The minimal sample code can be found on GitHub <a href="https://github.com/Developer-Autodesk/View-and-Data-Barebone" target="_blank">https://github.com/Developer-Autodesk/View-and-Data-Barebone</a></p>
-                    <p>It's less than 60 lines of JavaScript + HTML</p>
-                </section>
-
 
                 <section>
                     <h1>Resources</h1>
                     <ul class="fragment">
-                        <li class="fragment"><a href="https://developer.autodesk.com/">Developer Portal</a></li>
+                        <li class="fragment"><a href="https://developer.autodesk.com/api/view-and-data-api/">Developer Portal</a></li>
                         <li class="fragment"><a href="http://developer-autodesk.github.io/">Samples page on GitHub</a></li>
                         <ul class="fragment">
                             <li>quick start guides</li>
                             <li>sample apps</li>
                             <li>libraries</li>
                         </ul>
-                        <li class="fragment">These slides are on <br><a href="http://jaimerosales.github.io/5-min-view-and-data">http://jaimerosales.github.io/5-min-view-and-data</a></li>
+                        <li class="fragment">These slides are on <br><a href="http://jaimerosales.github.io/5-min-forge">http://jaimerosales.github.io/5-min-forge</a></li>
                         <li class="fragment">Ask me questions, Don't be shy</li>
 
                     </ul>
